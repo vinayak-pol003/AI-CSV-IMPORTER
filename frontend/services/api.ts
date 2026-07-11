@@ -1,6 +1,7 @@
 import { ImportResult, JobProgress, UploadResponseData, ScanResultSummary, ScanResult } from "@/types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://ai-csv-importer-2.onrender.com/api";
+const BASE = process.env.NEXT_PUBLIC_API_URL?.replace(/\/api\/?$/, "") || "https://ai-csv-importer-2.onrender.com";
+const API_BASE_URL = `${BASE}/api`;
 
 class ApiError extends Error {
   constructor(message: string, public statusCode?: number, public details?: unknown) {
